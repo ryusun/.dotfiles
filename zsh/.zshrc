@@ -123,6 +123,9 @@ freebsd*|darwin*)
 linux*)
 	alias ls='ls -alh -F --color=auto'
     ;;
+cygwin*)
+	alias ls='ls -alh -F --color=auto'
+    ;;
 esac
 
 #alias la="ls -a"
