@@ -1,8 +1,9 @@
 .dotfiles
 =========
 
-.dotfiles
-my dotfiles.
+.dotfiles  
+my dotfiles.  
 
--.zshrc
--.vimrc
+-.zshrc  
+-.vimrc  
+
