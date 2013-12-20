@@ -146,7 +146,7 @@ filetype indent on
 
 "other setting
 syntax on
-"colorscheme hybrid
+colorscheme hybrid
 "行表示
 set number
 
