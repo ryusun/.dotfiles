@@ -141,11 +141,6 @@ autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 
-NeoBundle 'epeli/slimux'
-
-map <C-c><C-c> :SlimuxREPLSendLine<CR>j
-vmap <C-c><C-c> :SlimuxREPLSendSelection<CR>
-
 
 filetype plugin on
 filetype indent on
