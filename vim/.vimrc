@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-  set runtimepath+=~/src/git/vim/bin/neobundle
+  set runtimepath+=~/.vim/bundle/neobundle
 
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
@@ -140,6 +140,12 @@ autocmd FileType java :setlocal ownifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
+
+NeoBundle 'epeli/slimux'
+
+map <C-c><C-c> :SlimuxREPLSendLine<CR>j
+vmap <C-c><C-c> :SlimuxREPLSendSelection<CR>
+
 
 filetype plugin on
 filetype indent on
