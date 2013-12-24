@@ -141,6 +141,7 @@ autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 
+
 filetype plugin on
 filetype indent on
 
