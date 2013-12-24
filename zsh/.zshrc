@@ -97,6 +97,12 @@ fpath=(${HOME}/.zsh/functions/Completion ${fpath})
 autoload -U compinit
 compinit
 
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*:warnings' format 'No matches for : %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:default' menu select=1
+
 ## zsh editor
 ##
 autoload zed
