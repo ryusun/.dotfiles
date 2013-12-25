@@ -147,7 +147,8 @@ filetype indent on
 
 "other setting
 syntax on
-colorscheme hybrid
+colorscheme jellybeans
+
 "行表示
 set number
 
