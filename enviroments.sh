@@ -18,7 +18,7 @@ ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 
 echo "add ~/.vim/bundle/neobundle"
 [ -d ~/.vim ] || mkdir -p ~/.vim/bundle
-ln -s ~/.dotfiles/vim/bin/bundle/neobundle ~/.vim/bundle/neobundle
+ln -s ~/.dotfiles/vim/bin/neobundle ~/.vim/bundle/neobundle
 
 echo "finish setup"
 
