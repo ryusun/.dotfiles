@@ -2,7 +2,7 @@
 
 # install .dotfiles
 
-sudo yum install git -y 
+sudo yum install vim -y 
 sudo yum install zsh -y 
 sudo yum install tmux -y
 
