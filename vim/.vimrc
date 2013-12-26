@@ -22,7 +22,9 @@ let g:neocomplcache_skip_input_time = '0.5'
 
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/altercation/solarized.git'
+"NeoBundle 'https://github.com/altercation/solarized.git'
+NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
+let g:solarized_termcolors=256
 NeoBundle 'https://github.com/fugalh/desert.vim.git'
 NeoBundle 'https://github.com/tomasr/molokai.git'
 NeoBundle 'git://github.com/nanotech/jellybeans.vim'
@@ -145,9 +147,18 @@ NeoBundle 'https://github.com/thinca/vim-ref.git'
 filetype plugin on
 filetype indent on
 
+"color setting
+syntax enable
+
+"if has('gui_running')
+"    set background=light
+"else
+    set background=dark
+"endif
+
+colorscheme solarized
+
 "other setting
-syntax on
-colorscheme molokai
 
 "行表示
 set number

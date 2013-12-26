@@ -17,8 +17,8 @@ echo "add ~/.vimrc"
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 
 echo "add ~/.vim/bundle/neobundle"
-[ -d ~/.vim ] || mkdir -p ~/.vim/bundle
-ln -s ~/.dotfiles/vim/bin/neobundle ~/.vim/bundle/neobundle
+[ -d ~/.vim/bundle ] || mkdir -p ~/.vim/bundle
+[ -h ~/.vim/bundle/neobundle ] || ln -s ~/.dotfiles/vim/bin/neobundle ~/.vim/bundle/neobundle
 
 [ -e ~/.tmux.conf ] && sudo rm -f ~/.tmux.conf
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
