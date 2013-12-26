@@ -2,6 +2,16 @@
 
 # install .dotfiles
 
+# add rpm epel
+
+if rpm -qa | grep epel ; then
+	 echo "epel already exists.do nothing." 
+ else 
+	 sudo rpm -ivh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+fi
+
+# add software
+
 sudo yum install vim -y 
 sudo yum install zsh -y 
 sudo yum install tmux -y
