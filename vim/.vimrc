@@ -147,7 +147,7 @@ filetype indent on
 
 "other setting
 syntax on
-colorscheme jellybeans
+colorscheme molokai
 
 "行表示
 set number

@@ -4,7 +4,7 @@
 
 sudo yum install git -y 
 sudo yum install zsh -y 
-
+sudo yum install tmux -y
 
 git submodule update --init
 
@@ -19,6 +19,9 @@ ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 echo "add ~/.vim/bundle/neobundle"
 [ -d ~/.vim ] || mkdir -p ~/.vim/bundle
 ln -s ~/.dotfiles/vim/bin/neobundle ~/.vim/bundle/neobundle
+
+[ -e ~/.tmux.conf ] && sudo rm -f ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 echo "finish setup"
 
