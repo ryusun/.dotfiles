@@ -166,6 +166,12 @@ set number
 "カーソル行表示
 set cursorline
 
+"アンダーラインを引く
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+
+"アンダーラインを引く
+highlight CursorLine gui=underline guifg=NONE guibg=NONE
+
 "改行タブがみえる
 set list
 
@@ -181,6 +187,12 @@ set softtabstop=0
 
 "paste
 set pastetoggle=<C-E>
+
+"インクリメンタルサーチ
+set incsearch
+
+"コマンドモードで補完
+set wildmenu wildmode=list:full
 
 "others
 "ファイルタイプを指定
