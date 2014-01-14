@@ -141,8 +141,14 @@ esac
 alias du="du -h"
 alias df="df -h"
 alias su="su -l"
-alias vi='/usr/bin/vim'
-alias vim='/usr/bin/vim'
+
+if [ -x /usr/bin/vim ]; then
+ alias vi='/usr/bin/vim'
+ alias vim='/usr/bin/vim'
+elif [ -x /usr/local/bin/vim ]; then
+ alias vi='/usr/local/bin/vim'
+ alias vim='/usr/local/bin/vim'
+fi
 
 ## terminal configuration
 ##
