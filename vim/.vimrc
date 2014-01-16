@@ -256,7 +256,7 @@ augroup END
  
 " snippetを保存するディレクトリを設定してください
 " example
-let s:default_snippet = neobundle#get_neobundle_dir() .'~/.vim/neosnippet/autoload/neosnippet/snippets' " 本体に入っているsnippet
+let s:default_snippet = neobundle#get_neobundle_dir() .'/neosnippet/autoload/neosnippet' " 本体に入っているsnippet
 let s:my_snippet = '~/.snippet' " 自分のsnippet
 let g:neosnippet#snippets_directory = s:my_snippet
 let g:neosnippet#snippets_directory = s:default_snippet . ',' .s:my_snippet
