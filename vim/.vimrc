@@ -172,8 +172,32 @@ highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 "アンダーラインを引く
 highlight CursorLine gui=underline guifg=NONE guibg=NONE
 
+
+"デフォルトのtabや改行がみえると邪魔なので工夫
+"ここから
+
 "改行タブがみえる
 set list
+
+highlight WhitespaceEOL cterm=underline ctermbg=red guibg=#FF0000
+au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
+au WinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
+
+" 行頭のTAB文字を可視化
+highlight TabString ctermbg=red guibg=red
+au BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
+au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
+
+" 全角スペースの表示
+highlight ZenkakuSpace cterm=underline ctermbg=red guibg=#666666
+au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+
+"ここまで
+
+"タブをタブとして扱う
+"set noexpandtab
+set expandtab
 
 "タブ表示幅
 set tabstop=4
@@ -181,8 +205,7 @@ set tabstop=4
 "タブ挿入幅
 set shiftwidth=4
 
-"タブをタブとして扱う
-set noexpandtab
+"タブをおした時の空白の数0の場合はtabstop(ts)に依存
 set softtabstop=0
 
 "paste
