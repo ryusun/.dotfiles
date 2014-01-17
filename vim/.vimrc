@@ -7,6 +7,9 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
+"色制限解除
+set t_Co=256
+
 NeoBundle 'git://github.com/Rip-Rip/clang_complete'
 NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -26,7 +29,6 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
 let g:solarized_termcolors=256
 NeoBundle 'https://github.com/fugalh/desert.vim.git'
-NeoBundle 'https://github.com/tomasr/molokai.git'
 NeoBundle 'git://github.com/nanotech/jellybeans.vim'
 let g:jellybeans_use_lowcolor_black = 0
 
@@ -39,12 +41,12 @@ NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
+NeoBundle 'git://github.com/tomasr/molokai.git'
 NeoBundle 'git://github.com/itchyny/lightline.vim'
 NeoBundle 'git://github.com/cocopon/lightline-hybrid.vim'
 let g:lightline ={}
 let g:lightline.colorscheme = 'hybrid'
 let g:lightline_hybrid_style = 'plain'
-
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
@@ -156,7 +158,8 @@ syntax enable
     set background=dark
 "endif
 
-colorscheme solarized
+"colorscheme solarized
+colorscheme hybrid
 
 "other setting
 
