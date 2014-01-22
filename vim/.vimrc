@@ -144,10 +144,12 @@ autocmd FileType java :setlocal ownifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
-
+NeoBundle 'https://github.com/kana/vim-fakeclip.git'
 
 filetype plugin on
 filetype indent on
+
+NeoBundle 'yegappan/grep'
 
 "color setting
 syntax enable
@@ -228,6 +230,9 @@ set wildmenu wildmode=list:full
 "change encoding.
 "set fileencoding=utf-8
 
+"clipborad setting
+"set clipborad+=unnamed
+"set clipborad+=autoselect
 
 
 "コメントの色を変える
