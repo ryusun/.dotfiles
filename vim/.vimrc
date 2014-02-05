@@ -141,7 +141,7 @@ NeoBundle 'FuzzyFinder'
 NeoBundle 'https://github.com/wincent/Command-T.git'
 
 NeoBundle 'vim-scripts/javacomplete'
-autocmd FileType java :setlocal ownifunc=javacomplete#Complete
+autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
