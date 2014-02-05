@@ -18,6 +18,8 @@ sudo yum install tmux -y
 
 git submodule update --init
 
+# add symbolic link
+
 echo "add ~/.zshrc"
 [ -e ~/.zshrc ] && sudo rm -f ~/.zshrc
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
@@ -32,6 +34,12 @@ echo "add ~/.vim/bundle/neobundle"
 
 [ -e ~/.tmux.conf ] && sudo rm -f ~/.tmux.conf
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
+# add working directory
+
+[ -d ~/src ]  || mkdir -p ~/src/git
+[ -d ~/work ] || mkdir -p ~/work
+[ -d ~/tmp ]  || mkdir -p ~/tmp
 
 echo "finish setup"
 
