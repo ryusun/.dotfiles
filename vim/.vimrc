@@ -85,6 +85,7 @@ NeoBundleLazy 'Shougo/neosnippet', {
       \   'insert' : 1,
       \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
       \ }}
+NeoBundle 'Shougo/neosnippet-snippets'
 
 NeoBundle 'tpope/vim-rails', { 'autoload' : {
       \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
@@ -265,16 +266,38 @@ augroup END
 " snippetを保存するディレクトリを設定してください
 " example
 let s:default_snippet = neobundle#get_neobundle_dir() .'/neosnippet/autoload/neosnippet' " 本体に入っているsnippet
-let s:my_snippet = '~/.snippet' " 自分のsnippet
-let g:neosnippet#snippets_directory = s:my_snippet
+"let s:my_snippet = '~/.snippet' " 自分のsnippet
+let s:my_snippet = s:default_snippet.'_my_snippet'
+"let g:neosnippet#snippets_directory = s:my_snippet
 let g:neosnippet#snippets_directory = s:default_snippet . ',' .s:my_snippet
 
-imap <silent><C-F>                	<Plug>(neosnippet_expand_or_jump)
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <silent><C-U>            	<ESC>:<C-U>Unite snippet<CR>
 nnoremap <silent><Space>e         	:<C-U>NeoSnippetEdit -split<CR>
-smap <silent><C-F>                  <Plug>(neosnippet_expand_or_jump)
-"xmap <silent>o						<Plug>(neosnippet_register_oneshot_snippet)
-"}}}
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" before <TAB>: complietion
+"imap <silent><C-F>                	<Plug>(neosnippet_expand_or_jump)
+"inoremap <silent><C-U>            	<ESC>:<C-U>Unite snippet<CR>
+"nnoremap <silent><Space>e         	:<C-U>NeoSnippetEdit -split<CR>
+"smap <silent><C-F>                  <Plug>(neosnippet_expand_or_jump)
+""xmap <silent>o						<Plug>(neosnippet_register_oneshot_snippet)
+""}}}
 
 
 "for switch.vim
