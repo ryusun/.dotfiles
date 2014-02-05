@@ -142,7 +142,7 @@ NeoBundle 'https://github.com/wincent/Command-T.git'
 
 NeoBundle 'vim-scripts/javacomplete'
 autocmd FileType java :setlocal omnifunc=javacomplete#Complete
-autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
+"autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 NeoBundle 'https://github.com/kana/vim-fakeclip.git'
