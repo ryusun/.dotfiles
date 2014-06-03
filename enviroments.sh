@@ -41,6 +41,20 @@ ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 [ -d ~/work ] || mkdir -p ~/work
 [ -d ~/tmp ]  || mkdir -p ~/tmp
 
+bashfile=~/.bashrc
+
+if ! cat $bashfile | grep -qa tmux ; then
+
+    echo "tmux_bin=\`which tmux\`" >> $bashfile
+    echo "zsh_bin=\`which zsh\`" >> $bashfile
+
+    echo "if [ ! -z \$tmux_bin ]; then" >> $bashfile
+    echo "    \$tmux_bin " >> ~/.bashrc
+    echo "elif [ ! -z \$zsh_bin ]; then" >> $bashfile
+    echo "    \$zsh_bin" >> $bashfile
+    echo "fi" >> $bashfile
+fi
+
 echo "finish setup"
 
 exit
