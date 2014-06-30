@@ -151,6 +151,7 @@ filetype plugin on
 filetype indent on
 
 NeoBundle 'yegappan/grep'
+NeoBundle 'vim-scripts/Vim-R-plugin'
 
 "color setting
 syntax enable
