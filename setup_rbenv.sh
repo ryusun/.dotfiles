@@ -11,13 +11,20 @@ if [ "$MY_GROUP" = "" ] ; then
     exit 1
 fi
 
-# install epel
-sudo rpm -ivh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpms
-# ruby required softwares
-sudo yum -y install curl curl-devel gcc gcc-c++ git openssl-devel httpd-devel readline-devel tk-devel make zlib-devel libffi-devel
+if which yum ; then
+    # install epel
+    sudo rpm -ivh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpms
+    # ruby required softwares
+    sudo yum -y install curl libcurl-dev gcc gcc-c++ git openssl-devel httpd-devel readline-devel tk-devel make zlib-devel libffi-devel
 
-# ruby required softwares
-sudo yum --enablerepo=epel -y install libyaml-devel
+    # ruby required softwares
+    sudo yum --enablerepo=epel -y install libyaml-devel
+
+else
+    sudo apt-get -y install curl build-essential git libssl-dev apache2-dev libreadline6-dev tk-dev make zlib1g-dev libffi-dev libssl-dev libssl1.0.0 
+
+    sudo apt-get -y install libyaml-dev
+fi
 
 cd /usr/local
 

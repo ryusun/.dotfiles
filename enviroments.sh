@@ -4,17 +4,25 @@
 
 # add rpm epel
 
-if rpm -qa | grep epel ; then
-	 echo "epel already exists.do nothing." 
- else 
-	 sudo rpm -ivh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+if which yum ; then
+
+    if !(rpm -qa | grep epel) ; then
+        sudo rpm -ivh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    fi
+
+    # add software
+
+    sudo yum install vim -y 
+    sudo yum install zsh -y 
+    sudo yum install tmux -y
+
+else
+
+    sudo apt-get install vim -y
+    sudo apt-get install zsh -y
+    sudo apt-get install tmux -y
+
 fi
-
-# add software
-
-sudo yum install vim -y 
-sudo yum install zsh -y 
-sudo yum install tmux -y
 
 git submodule update --init
 
@@ -45,6 +53,10 @@ bashfile=~/.bashrc
 
 if ! cat $bashfile | grep -qa tmux ; then
 
+    echo "vim_bin=\`which vim\`" >> $bashfile
+    echo "if which apt-get ; then" >> $bashfile
+    echo "      export EDITOR=\$vim_bin" >> $bashfile
+    echo "fi" >> $bashfile
     echo "tmux_bin=\`which tmux\`" >> $bashfile
     echo "zsh_bin=\`which zsh\`" >> $bashfile
 
