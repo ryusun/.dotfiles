@@ -121,7 +121,7 @@ NeoBundleLazy 'alpaca-tc/neorspec.vim', {
 NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \ 'depends': 'Shougo/vimproc',
       \ 'autoload' : {
-      \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
+      \   'commands': ['AlpacaTagsUpdate', 'AlpacaTagsSet', 'AlpacaTagsBundle']
       \ }}
 
 NeoBundleLazy 'tsukkee/unite-tag', {
