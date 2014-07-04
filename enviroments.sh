@@ -21,7 +21,9 @@ else
     sudo apt-get install vim -y
     sudo apt-get install zsh -y
     sudo apt-get install tmux -y
-
+    if w | grep -qa "init --user" ; then
+        sudo apt-get install xclip -y
+    fi
 fi
 
 git submodule update --init
