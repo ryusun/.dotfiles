@@ -20,7 +20,7 @@ if [ ! -d ndenv -a ! -d node-build ]; then
 	 chgrp -R $MY_GROUP ndenv
 	 chmod -R g+rwxX ndenv
 
-	 git clone https://github.com/riywo/node-build.git node_build
+	 git clone https://github.com/riywo/node-build.git ndenv/plugins/node_build
 fi
 
 if [ ! -f /etc/profile.d/ndenv.sh ]; then
