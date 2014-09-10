@@ -12,15 +12,18 @@ if [ "$MY_GROUP" = "" ] ; then
 fi
 
 cd /usr/local
+curdir=`pwd`
 
 if [ ! -d ndenv -a ! -d node-build ]; then
 	 git clone https://github.com/riywo/ndenv.git
 #	 mkdir ndenv/shims ndenv/versions ndenv/plugins
-	 mkdir ndenv/plugins
+	 mkdir -p ndenv/plugins
 	 chgrp -R $MY_GROUP ndenv
 	 chmod -R g+rwxX ndenv
 
+
 	 git clone https://github.com/riywo/node-build.git ndenv/plugins/node_build
+
 fi
 
 if [ ! -f /etc/profile.d/ndenv.sh ]; then
@@ -30,6 +33,10 @@ if [ ! -f /etc/profile.d/ndenv.sh ]; then
 fi
 
 source /etc/profile.d/ndenv.sh
+
+chown -R $MY_GROUP:$MY_GROUP ${curdir}/ndenv/shims 
+chown -R $MY_GROUP:$MY_GROUP ${curdir}/ndenv/versions
+
 
 exit
 
