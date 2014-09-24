@@ -204,7 +204,7 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 "タブをタブとして扱う
 "set noexpandtab
-set expandtab
+"set expandtab
 
 "タブ表示幅
 set tabstop=4
@@ -247,6 +247,8 @@ let b:match_words = '<:>,<div.*>:</div>'
 :nnoremap ,ev :tabnew $HOME/.vimrc<CR>
 :nnoremap ,rv :source $HOME/.vimrc<CR>
 
+:nnoremap ,nt :tabnew <CR>
+
 
 "setting
 augroup AlpacaTags
@@ -258,6 +260,8 @@ augroup AlpacaTags
     "autocmd BufWritePost * TagsUpdate
 	endif
 augroup END
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 "------------------------------------
 " neosnippet
