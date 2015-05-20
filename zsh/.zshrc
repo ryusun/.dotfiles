@@ -210,4 +210,10 @@ export PATH
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
 
+# Setting anyenv system wide
+
+if [ -d /usr/local/anyenv ] ; then
+    export PATH="/usr/local/anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+fi
 
