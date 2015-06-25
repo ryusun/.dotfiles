@@ -16,9 +16,9 @@ AnyHome=/usr/local
 
 if which yum ; then
     # install epel
-    sudo rpm -ivh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpms
+    rpm -ivh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpms
     # ruby required softwares
-    sudo yum -y install curl libcurl-dev gcc gcc-c++ git openssl-devel httpd-devel readline-devel tk-devel make zlib-devel libffi-devel
+    yum -y install curl libcurl-dev gcc gcc-c++ git openssl-devel httpd-devel readline-devel tk-devel make zlib-devel libffi-devel
 
     # install python
 #    sudo yum -y install python-virtualenv
@@ -26,12 +26,12 @@ if which yum ; then
 #    source ENV/bin/activate
 
     # ruby required softwares
-    sudo yum --enablerepo=epel -y install libyaml-devel
+    yum --enablerepo=epel -y install libyaml-devel
 
 else
-    sudo apt-get -y install curl build-essential git libssl-dev apache2-dev libreadline6-dev tk-dev make zlib1g-dev libffi-dev libssl-dev libssl1.0.0 
+    apt-get -y install curl build-essential git libssl-dev apache2-dev libreadline6-dev tk-dev make zlib1g-dev libffi-dev libssl-dev libssl1.0.0 
 
-    sudo apt-get -y install libyaml-dev
+    apt-get -y install libyaml-dev
 fi
 
 

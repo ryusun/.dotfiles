@@ -204,7 +204,7 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 "タブをタブとして扱う
 "set noexpandtab
-"set expandtab
+set expandtab
 
 "タブ表示幅
 set tabstop=4
