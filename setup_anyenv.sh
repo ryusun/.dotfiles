@@ -46,6 +46,7 @@ fi
 
 if [ ! -e /etc/profile.d/anyenv.sh ]; then
    echo 'export PATH=/usr/local/anyenv/bin:$PATH' >> /etc/profile.d/anyenv.sh
+   echo 'export ANYENV_ROOT=/usr/local/anyenv' >> /etc/profile.d/anyenv.sh
    echo 'eval "$(anyenv init -)"' >> /etc/profile.d/anyenv.sh
 fi
 
