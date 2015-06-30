@@ -20,10 +20,9 @@ if which yum ; then
     # ruby required softwares
     yum -y install curl libcurl-dev gcc gcc-c++ git openssl-devel httpd-devel readline-devel tk-devel make zlib-devel libffi-devel
 
+    # for python 2.x
     # install python
-#    sudo yum -y install python-virtualenv
-#    python virtualenv.py --distribute ENV
-#    source ENV/bin/activate
+    yum -y install bzip2-devel sqlite-devel
 
     # ruby required softwares
     yum --enablerepo=epel -y install libyaml-devel
