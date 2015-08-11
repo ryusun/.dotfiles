@@ -155,6 +155,11 @@ NeoBundle 'vim-scripts/Vim-R-plugin'
 
 "for python
 NeoBundle 'davidhalter/jedi-vim.git', { 'directory': 'jedi-vim' }
+let g:jedi#auto_initialization = 1
+let g:jedi#rename_command = "<leader>R"
+let g:jedi#popup_on_dot = 1
+autocmd FileType python let b:did_ftplugin = 1
+
 
 NeoBundle 'nathanaelkane/vim-indent-guides.git', { 'directory': 'vim-indent-guides' }
 let g:indent_guides_auto_colors = 0
