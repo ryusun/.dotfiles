@@ -12,21 +12,72 @@ endif
 set t_Co=256
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'git://github.com/Rip-Rip/clang_complete'
-NeoBundle 'git://github.com/Shougo/echodoc.git'
-"NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_smart_case = 1
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_manual_completion_start_length = 0
-"let g:neocomplcache_caching_percent_in_statusline = 1
-"let g:neocomplcache_enable_skip_completion = 1
-"let g:neocomplcache_skip_input_time = '0.5'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'Shougo/echodoc.git'
+NeoBundle 'Shougo/neocomplcache.git'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
 
 
-NeoBundle 'Shougo/neocomplete.vim'
+
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'altercation/vim-colors-solarized.git'
+let g:solarized_termcolors=256
+NeoBundle 'fugalh/desert.vim.git'
+NeoBundle 'nanotech/jellybeans.vim'
+let g:jellybeans_use_lowcolor_black = 0
+
+NeoBundle 'w0ng/vim-hybrid.git'
+NeoBundle 'git://gist.github.com/3278077.git'
+NeoBundle 'ujihisa/unite-colorscheme'
+let g:hybrid_use_Xresources = 1
+
+NeoBundle 'Shougo/vim-vcs.git'
+NeoBundle 'Shougo/vimfiler.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'Shougo/vinarise.git'
+NeoBundle 'tomasr/molokai.git'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'cocopon/lightline-hybrid.vim'
+let g:lightline ={}
+let g:lightline.colorscheme = 'hybrid'
+let g:lightline_hybrid_style = 'plain'
+
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_quiet_messages= {'level': 'warnings'}
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_echo_current_error = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_php_php_args = '-l'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
+        \   'insert' : 1,
+        \ }}
 "------------------------------------
 " neocomplete.vim
 "------------------------------------
@@ -65,59 +116,8 @@ inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
-"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-"NeoBundle 'https://github.com/altercation/solarized.git'
-NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
-let g:solarized_termcolors=256
-NeoBundle 'https://github.com/fugalh/desert.vim.git'
-NeoBundle 'git://github.com/nanotech/jellybeans.vim'
-let g:jellybeans_use_lowcolor_black = 0
+"------------------------------------
 
-NeoBundle 'git://github.com/w0ng/vim-hybrid.git'
-NeoBundle 'git://gist.github.com/3278077.git'
-NeoBundle 'git://github.com/ujihisa/unite-colorscheme'
-let g:hybrid_use_Xresources = 1
-
-NeoBundle 'git://github.com/Shougo/vim-vcs.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/Shougo/vinarise.git'
-NeoBundle 'git://github.com/tomasr/molokai.git'
-NeoBundle 'git://github.com/itchyny/lightline.vim'
-NeoBundle 'git://github.com/cocopon/lightline-hybrid.vim'
-let g:lightline ={}
-let g:lightline.colorscheme = 'hybrid'
-let g:lightline_hybrid_style = 'plain'
-
-NeoBundle 'scrooloose/syntastic'
-let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_quiet_messages= {'level': 'warnings'}
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_echo_current_error = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_php_php_args = '-l'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-if has("lua")
-  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
-        \   'insert' : 1,
-        \ }}
 endif
 
 NeoBundleLazy 'Shougo/neosnippet', {
@@ -199,8 +199,12 @@ let g:jedi#auto_initialization = 1
 let g:jedi#rename_command = "<leader>R"
 let g:jedi#popup_on_dot = 1
 autocmd FileType python let b:did_ftplugin = 1
-autocmd FileType python setlocal completeopt-=preview
 
+"--------------------------------------------
+" Configuration at conbination neocomplete.
+"--------------------------------------------
+
+autocmd FileType python setlocal completeopt-=preview
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
@@ -210,6 +214,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 "let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 let g:neocomplete#force_omni_input_patterns.python = '\h\w|[^. \t].\w'
+
+"--------------------------------------------
 
 NeoBundle 'kevinw/pyflakes-vim.git', { 'directory': 'pyflakes-vim' }
 let g:syntastic_mode_map = {
