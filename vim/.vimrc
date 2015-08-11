@@ -11,6 +11,7 @@ endif
 "色制限解除
 set t_Co=256
 
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'git://github.com/Rip-Rip/clang_complete'
 NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -24,7 +25,7 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'https://github.com/altercation/solarized.git'
 NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
@@ -150,6 +151,11 @@ NeoBundle 'https://github.com/kana/vim-fakeclip.git'
 
 NeoBundle 'yegappan/grep'
 NeoBundle 'vim-scripts/Vim-R-plugin'
+
+"for python
+NeoBundle 'davidhalter/jedi-vim.git', { 'directory': 'jedi-vim' }
+
+
 
 call neobundle#end()
 
