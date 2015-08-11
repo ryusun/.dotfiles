@@ -4,7 +4,8 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle
 
-  call neobundle#rc(expand('~/.vim/bundle'))
+  "call neobundle#rc(expand('~/.vim/bundle'))
+  call neobundle#begin(expand('~/.vim/bundle'))
 endif
 
 "色制限解除
@@ -141,17 +142,21 @@ NeoBundle 'FuzzyFinder'
 NeoBundle 'https://github.com/wincent/Command-T.git'
 
 NeoBundle 'vim-scripts/javacomplete'
-autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 "autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 NeoBundle 'https://github.com/kana/vim-fakeclip.git'
 
-filetype plugin on
-filetype indent on
 
 NeoBundle 'yegappan/grep'
 NeoBundle 'vim-scripts/Vim-R-plugin'
+
+call neobundle#end()
+
+autocmd FileType java :setlocal omnifunc=javacomplete#Complete
+
+filetype plugin on
+filetype indent on
 
 "color setting
 syntax enable
