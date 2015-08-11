@@ -143,6 +143,7 @@ NeoBundle 'FuzzyFinder'
 NeoBundle 'https://github.com/wincent/Command-T.git'
 
 NeoBundle 'vim-scripts/javacomplete'
+autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 "autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
 NeoBundle 'https://github.com/thinca/vim-ref.git'
@@ -155,11 +156,13 @@ NeoBundle 'vim-scripts/Vim-R-plugin'
 "for python
 NeoBundle 'davidhalter/jedi-vim.git', { 'directory': 'jedi-vim' }
 
-
+NeoBundle 'nathanaelkane/vim-indent-guides.git', { 'directory': 'vim-indent-guides' }
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 call neobundle#end()
 
-autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 
 filetype plugin on
 filetype indent on
