@@ -524,6 +524,38 @@ NeoBundleLazy "gregsexton/gitv", {
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'mbbill/undotree'
+nmap <Leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_WindowLayout = 'topleft'
+let g:undotree_SplitWidth = 35
+let g:undotree_diffAutoOpen = 1
+let g:undotree_diffpanelHeight = 25
+let g:undotree_RelativeTimestamp = 1
+let g:undotree_TreeNodeShape = '*'
+let g:undotree_HighlightChangedText = 1
+let g:undotree_HighlightSyntax = "UnderLined"
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'vim-scripts/DirDo.vim'
+NeoBundle 'AndrewRadev/switch.vim'
+
+"for switch.vim
+function! s:separate_defenition_to_each_filetypes(ft_dictionary) "{{{
+        let result = {}
+
+        for [filetypes, value] in items(a:ft_dictionary)
+            for ft in split(filetypes, ",")
+                        if !has_key(result, ft)
+                            let result[ft] = []
+                    endif
+
+                        call extend(result[ft], copy(value))
+                endfor
+        endfor
+
+        return result
+endfunction "}}}
+
 "===================================================================
 "===================================================================
 "===================================================================
@@ -577,22 +609,6 @@ function! s:hooks.on_source(bundle)
 
 endfunction
 
-"for switch.vim
-function! s:separate_defenition_to_each_filetypes(ft_dictionary) "{{{
-        let result = {}
-
-        for [filetypes, value] in items(a:ft_dictionary)
-            for ft in split(filetypes, ",")
-                        if !has_key(result, ft)
-                            let result[ft] = []
-                    endif
-
-                        call extend(result[ft], copy(value))
-                endfor
-        endfor
-
-        return result
-endfunction "}}}
 
 "===================================================================
 "===================================================================
@@ -740,7 +756,11 @@ let g:syntastic_mode_map = {
 " theme
 "-------------------------------------------------------------------
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'git://gist.github.com/3278077.git'
+NeoBundle 'ujihisa/unite-colorscheme'
+
 "color setting
+let g:hybrid_use_Xresources = 1
 syntax on
 colorscheme hybrid
 
@@ -778,10 +798,6 @@ NeoBundle 'fugalh/desert.vim.git'
 NeoBundle 'nanotech/jellybeans.vim'
 let g:jellybeans_use_lowcolor_black = 0
 
-NeoBundle 'w0ng/vim-hybrid.git'
-NeoBundle 'git://gist.github.com/3278077.git'
-NeoBundle 'ujihisa/unite-colorscheme'
-let g:hybrid_use_Xresources = 1
 
 NeoBundle 'Shougo/vim-vcs.git'
 NeoBundle 'Shougo/vimfiler.git'
