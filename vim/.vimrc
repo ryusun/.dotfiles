@@ -711,8 +711,8 @@ endfunction
 " Configuration at conbination neocomplete.
 "--------------------------------------------
 
-autocmd FileType python setlocal completeopt-=preview
-autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd MyAutoCmd FileType python setlocal completeopt-=preview
+autocmd MyAutoCmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 
@@ -859,6 +859,24 @@ NeoBundle 'LeafCage/lastmess.vim'
 "===================================================================
 "===================================================================
 
+"-------------------------------------------------------------------
+" 補完機能に色付け
+"-------------------------------------------------------------------
+hi Pmenu ctermbg=0
+hi PmenuSel ctermbg=4
+"hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
+hi PmenuSbar ctermbg=2
+hi PmenuThumb ctermfg=3
+
+" vimdiffの色設定
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
+
+"===================================================================
+"===================================================================
+"===================================================================
 " ファイルタイププラグインおよびインデントを有効化
 " これはNeoBundleによる処理が終了したあとに呼ばなければならない
 filetype plugin indent on
