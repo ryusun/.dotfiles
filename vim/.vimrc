@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let mapleader = "\<Space>"
 
 "-------------------------------------------------------------------
 " release autogroup in MyAutoCmd
