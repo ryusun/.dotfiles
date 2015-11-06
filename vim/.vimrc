@@ -77,7 +77,7 @@ set list                " 不可視文字の可視化
 set number              " 行番号の表示
 set wrap                " 長いテキストの折り返し
 set textwidth=0         " 自動的に改行が入るのを無効化
-"set colorcolumn=80      " その代わり80文字目にラインを入れる
+set colorcolumn=80      " その代わり80文字目にラインを入れる
 set tabstop=4           " タブを4スペースで
 set shiftwidth=4        " タブ挿入幅
 
@@ -454,6 +454,14 @@ function! s:hooks.on_source(bundle)
   endfunction
 endfunction
 
+NeoBundle 'daisuzu/unite-grep_launcher'
+if !exists('g:grep_launcher_words')
+    let g:grep_launcher_words = {}
+endif
+
+let g:grep_launcher_words['keyword1'] = 'single grep word'
+let g:grep_launcher_words['keyword2'] = 'grep word #1\|grep word #2'
+
 NeoBundle 'Shougo/neomru.vim'
 
 "===================================================================
@@ -725,6 +733,13 @@ function! s:hooks.on_source(bundle)
   autocmd MyAutoCmd FileType python let b:did_ftplugin = 1
 endfunction
 
+" pyenv 処理用に vim-pyenv を追加
+" Note: depends が指定されているため jedi-vim より後にロードされる（ことを期待）
+NeoBundleLazy "lambdalisue/vim-pyenv", {
+      \ "depends": ['davidhalter/jedi-vim'],
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
 
 "--------------------------------------------
 " Configuration at conbination neocomplete.
@@ -759,13 +774,16 @@ let g:syntastic_mode_map = {
 " theme
 "-------------------------------------------------------------------
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'git://gist.github.com/3278077.git'
+NeoBundle 'chriskempson/tomorrow-theme'
 NeoBundle 'ujihisa/unite-colorscheme'
 
-"color setting
-let g:hybrid_use_Xresources = 1
 syntax on
-colorscheme hybrid
+set background=dark
+if ($ft=='ruby')
+  colorscheme Tomorrow-Night
+else
+  colorscheme hybrid
+endif
 
 "===================================================================
 "===================================================================
@@ -902,6 +920,7 @@ filetype plugin indent on
 filetype on
 filetype plugin on
 filetype indent on
+
 
 if has('gui_running')
     set background=light

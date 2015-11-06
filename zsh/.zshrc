@@ -217,3 +217,10 @@ if [ -d /usr/local/anyenv ] ; then
     eval "$(anyenv init -)"
 fi
 
+type direnv > /dev/null 2>&1 eval "$(direnv hook bash)" 
+
+export WORKON_HOME=$HOME/.virtualenvs
+#source /usr/local/anyenv/envs/pyenv/shims/virtualenvwrapper.sh
+
+
+

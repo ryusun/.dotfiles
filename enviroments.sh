@@ -15,12 +15,14 @@ if which yum ; then
     sudo yum install vim -y 
     sudo yum install zsh -y 
     sudo yum install tmux -y
+    sudo yum install pandoc -y
 
 else
 
     sudo apt-get install vim -y
     sudo apt-get install zsh -y
     sudo apt-get install tmux -y
+    sudo apt-get install pandoc -y
     if w | grep -qa "init --user" ; then
         sudo apt-get install xclip -y
     fi
