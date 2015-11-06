@@ -769,6 +769,12 @@ let g:syntastic_mode_map = {
 "===================================================================
 "===================================================================
 
+"-------------------------------------------------------------------
+" go関連
+"-------------------------------------------------------------------
+NeoBundle 'vim-jp/vim-go-extra'
+
+
 
 "-------------------------------------------------------------------
 " theme
@@ -830,8 +836,12 @@ NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_quiet_messages= {'level': 'warnings'}
 
+let g:syntastic_mode_map = { 'mode': 'passive',
+    \ 'active_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint']
+
+let g:syntastic_quiet_messages= {'level': 'warnings'}
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_echo_current_error = 1
