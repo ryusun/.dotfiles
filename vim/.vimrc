@@ -825,7 +825,7 @@ NeoBundle 'fugalh/desert.vim.git'
 NeoBundle 'nanotech/jellybeans.vim'
 let g:jellybeans_use_lowcolor_black = 0
 
-
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Shougo/vim-vcs.git'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'Shougo/vimshell.git'
