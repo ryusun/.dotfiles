@@ -780,16 +780,20 @@ NeoBundle 'vim-jp/vim-go-extra'
 " theme
 "-------------------------------------------------------------------
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'chriskempson/tomorrow-theme'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'sjl/badwolf'
 
 syntax on
 set background=dark
-if ($ft=='ruby')
-  colorscheme Tomorrow-Night
-else
-  colorscheme hybrid
-endif
+"colorscheme hybrid
+colorscheme Tomorrow-Night-Bright
+
+"if ($ft == 'ruby')
+"  colorscheme Tomorrow-Night
+"else
+"  colorscheme hybrid
+"endif
 
 "===================================================================
 "===================================================================
@@ -833,6 +837,7 @@ NeoBundle 'Shougo/vinarise.git'
 NeoBundle 'itchyny/lightline.vim'
 
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -879,6 +884,20 @@ NeoBundleLazy 'basyura/unite-rails', {
       \   ]
       \ }}
 
+"===================================================================
+" :call Flake8()
+" Refs -> http://goo.gl/X9KCbG
+"===================================================================
+NeoBundleLazy "nvie/vim-flake8", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
+let g:flake8_builtins="_,apply"
+let g:flake8_ignore="E4"
+let g:flake8_max_line_length=120
+let g:flake8_max_complexity=10
+let g:flake8_cmd="/opt/python/bin/flake8"
+autocmd BufWritePost *.py call Flake8()
 
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
