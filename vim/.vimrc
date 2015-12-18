@@ -388,8 +388,13 @@ nmap <Leader>T <plug>TaskList
 "===================================================================
 "===================================================================
 " HTMLが開かれるまでロードしない
-NeoBundleLazy 'mattn/zencoding-vim', {
-    \ "autoload": {"filetypes": ['html']}}
+"NeoBundleLazy 'mattn/zencoding-vim', { "autoload": {"filetypes": ['html']}}
+
+NeoBundle 'mattn/emmet-vim'
+let g:user_emmet_install_global = 0
+let g:user_emmet_mode='a'    "enable all function in all mode.
+autocmd FileType html,css EmmetInstall
+
 
 "===================================================================
 "===================================================================
@@ -892,11 +897,12 @@ NeoBundleLazy "nvie/vim-flake8", {
       \ "autoload": {
       \   "filetypes": ["python", "python3", "djangohtml"]
       \ }}
-let g:flake8_builtins="_,apply"
-let g:flake8_ignore="E4"
-let g:flake8_max_line_length=120
-let g:flake8_max_complexity=10
-let g:flake8_cmd="/opt/python/bin/flake8"
+"===================================================================
+"pip install flake8
+"which flake8
+"で出てきたパスを下記のflake8_cmdに入れましょう
+"===================================================================
+let g:flake8_cmd="/usr/local/anyenv/envs/pyenv/shims/flake8"
 autocmd BufWritePost *.py call Flake8()
 
 NeoBundle 'Lokaltog/vim-easymotion'
