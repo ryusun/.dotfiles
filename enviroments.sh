@@ -7,7 +7,12 @@
 if which yum ; then
 
     if !(rpm -qa | grep epel) ; then
+
+      if `grep -q "release 7" /etc/redhat-release`; then
+        sudo yum install -y epel-release
+      else
         sudo rpm -ivh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+      fi
     fi
 
     # add software
@@ -16,6 +21,7 @@ if which yum ; then
     sudo yum install zsh -y 
     sudo yum install tmux -y
     sudo yum install pandoc -y
+    sudo yum install bzcat -y
 
 else
 
@@ -23,6 +29,7 @@ else
     sudo apt-get install zsh -y
     sudo apt-get install tmux -y
     sudo apt-get install pandoc -y
+    sudo apt-get install bzcat -y
     if w | grep -qa "init --user" ; then
         sudo apt-get install xclip -y
     fi
