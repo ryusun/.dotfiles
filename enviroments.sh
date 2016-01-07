@@ -35,6 +35,12 @@ else
     fi
 fi
 
+
+ if `grep -q "release 7" /etc/redhat-release`; then
+   sudo yum install -y wget
+   sudo wget -O /usr/local/bin/direnv https://github.com/direnv/direnv/releases/download/v2.6.0/direnv.linux-amd64 && sudo chmod 777 /usr/local/bin/direnv
+ fi 
+
 git submodule update --init
 
 # add symbolic link
