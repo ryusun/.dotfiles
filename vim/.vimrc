@@ -788,11 +788,13 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'sjl/badwolf'
+NeoBundle 'atelierbram/vim-colors_duotones.git'
 
 syntax on
 set background=dark
 "colorscheme hybrid
-colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Bright
+colorscheme base16-duotone-dark
 
 "if ($ft == 'ruby')
 "  colorscheme Tomorrow-Night
