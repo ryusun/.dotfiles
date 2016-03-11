@@ -77,7 +77,7 @@ set list                " 不可視文字の可視化
 set number              " 行番号の表示
 set wrap                " 長いテキストの折り返し
 set textwidth=0         " 自動的に改行が入るのを無効化
-set colorcolumn=80      " その代わり80文字目にラインを入れる
+"set colorcolumn=80      " その代わり80文字目にラインを入れる
 set tabstop=4           " タブを4スペースで
 set shiftwidth=4        " タブ挿入幅
 
