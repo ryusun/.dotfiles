@@ -108,8 +108,8 @@ highlight ZenkakuSpace cterm=underline ctermbg=red guibg=#666666
 au BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
-"set noexpandtab
-set expandtab           " タブをタブとして扱う
+set noexpandtab
+"set expandtab           " タブをタブとして扱う
 
 "タブをおした時の空白の数0の場合はtabstop(ts)に依存
 set softtabstop=0
@@ -890,6 +890,7 @@ NeoBundleLazy 'basyura/unite-rails', {
       \     'rails/stylesheet', 'rails/view'
       \   ]
       \ }}
+NeoBundle 'scrooloose/nerdtree'
 
 "===================================================================
 " :call Flake8()
