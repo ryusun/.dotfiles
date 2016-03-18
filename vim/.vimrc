@@ -86,7 +86,7 @@ set t_vb=
 set novisualbell
 
 "カーソル行表示
-set cursorline
+"set cursorline
 
 "アンダーラインを引く
 highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
@@ -99,9 +99,9 @@ au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
 au WinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
 
 " 行頭のTAB文字を可視化
-highlight TabString ctermbg=red guibg=red
-au BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
-au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
+"highlight TabString ctermbg=red guibg=red
+"au BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
+"au WinEnter * let w:m2 = matchadd("TabString", '^\t+')
 
 " 全角スペースの表示
 highlight ZenkakuSpace cterm=underline ctermbg=red guibg=#666666
@@ -760,6 +760,7 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 "let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 let g:neocomplete#force_omni_input_patterns.python = '\h\w|[^. \t].\w'
+let g:neocomplete#force_omni_input_patterns.go =  '\h\w\.\w*'
 
 "--------------------------------------------
 
@@ -778,6 +779,13 @@ let g:syntastic_mode_map = {
 " go関連
 "-------------------------------------------------------------------
 NeoBundle 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+
 NeoBundle 'vim-jp/vim-go-extra'
 
 
