@@ -86,13 +86,8 @@ set t_vb=
 set novisualbell
 
 "カーソル行表示
-"set cursorline
-
-"アンダーラインを引く
-highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
-
-"アンダーラインを引く
-highlight CursorLine gui=underline guifg=NONE guibg=NONE
+set cursorline
+hi clear CursorLine
 
 highlight WhitespaceEOL cterm=underline ctermbg=red guibg=#FF0000
 au BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", ' +$')
@@ -432,32 +427,14 @@ NeoBundleLazy 'h1mesuke/unite-outline', {
       \ "autoload": {
       \   "unite_sources": ["outline"],
       \ }}
-nnoremap [unite] <Nop>
-nmap U [unite]
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [unite]w :<C-u>Unite window<CR>
-let s:hooks = neobundle#get_hooks("unite.vim")
-function! s:hooks.on_source(bundle)
-  " start unite in insert mode
-  let g:unite_enable_start_insert = 1
-  " use vimfiler to open directory
-  call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-  call unite#custom_default_action("directory", "vimfiler")
-  call unite#custom_default_action("directory_mru", "vimfiler")
-  autocmd MyAutoCmd FileType unite call s:unite_settings()
-  function! s:unite_settings()
-    imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-    nmap <buffer> <Esc> <Plug>(unite_exit)
-    nmap <buffer> <C-n> <Plug>(unite_select_next_line)
-    nmap <buffer> <C-p> <Plug>(unite_select_previous_line)
-  endfunction
-endfunction
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
 NeoBundle 'daisuzu/unite-grep_launcher'
 if !exists('g:grep_launcher_words')
@@ -793,23 +770,13 @@ NeoBundle 'vim-jp/vim-go-extra'
 "-------------------------------------------------------------------
 " theme
 "-------------------------------------------------------------------
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'pkukulak/idle'
 NeoBundle 'sjl/badwolf'
-NeoBundle 'atelierbram/vim-colors_duotones.git'
 
 syntax on
 set background=dark
-"colorscheme hybrid
-"colorscheme Tomorrow-Night-Bright
-colorscheme base16-duotone-dark
-
-"if ($ft == 'ruby')
-"  colorscheme Tomorrow-Night
-"else
-"  colorscheme hybrid
-"endif
+colorscheme idle
 
 "===================================================================
 "===================================================================
