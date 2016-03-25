@@ -435,6 +435,7 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,ul :<C-u>Unite file<CR>
 
 NeoBundle 'daisuzu/unite-grep_launcher'
 if !exists('g:grep_launcher_words')
@@ -565,42 +566,6 @@ NeoBundleLazy 'Shougo/neosnippet', {
       \   'insert' : 1,
       \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
       \ }}
-
-let s:hooks = neobundle#get_hooks("neosnippet.vim")
-function! s:hooks.on_source(bundle)
-  " Plugin key-mappings.
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
-  " SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
-
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  inoremap <silent><C-U>                  <ESC>:<C-U>Unite snippet<CR>
-  nnoremap <silent><Space>e               :<C-U>NeoSnippetEdit -split<CR>
-
-  " For snippet_complete marker.
-  if has('conceal')
-    set conceallevel=2 concealcursor=i
-  endif
-  " Enable snipMate compatibility feature.
-  let g:neosnippet#enable_snipmate_compatibility = 1
-  " Tell Neosnippet about the other snippets
-  "let g:neosnippet#snippets_directory=s:bundle_root . '/vim-snippets/snippets'
-
-  " 本体に入っているsnippet
-  let s:default_snippet = neobundle#get_neobundle_dir() .'/neosnippet/autoload/neosnippet'
-
-  " 自分のsnippet
-  let s:my_snippet = s:default_snippet.'_my_snippet'
-  let g:neosnippet#snippets_directory = s:default_snippet . ',' .s:my_snippet
-
-endfunction
 
 
 "===================================================================
